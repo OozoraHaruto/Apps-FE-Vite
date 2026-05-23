@@ -6,6 +6,8 @@ import { useTitle } from '../hooks/useTitle'
 import HarutoAppCard, { type HomeApp } from '../components/haruto/HarutoAppCard'
 import './Haruto.css'
 
+import '@web.awesome.me/webawesome-pro/dist/components/copy-button/copy-button.js';
+
 const API = 'https://api.harutoapps.org/home'
 
 interface ProductKey {

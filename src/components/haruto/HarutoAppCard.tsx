@@ -51,11 +51,11 @@ export default function HarutoAppCard({
   const hiddenCount = app.hiddenLinks?.length ?? 0
 
   return (
-    <article
+    <wa-card
       className="h-card"
       style={{ '--anim-delay': `${delay}s` } as CSSProperties}
     >
-      <div className="h-card-img-wrap">
+      <div slot="media">
         <img
           className="h-card-img"
           src={cloudinaryUrl(app.image)}
@@ -63,24 +63,22 @@ export default function HarutoAppCard({
           loading="lazy"
         />
       </div>
-      <div className="h-card-body">
-        <h3 className="h-card-name">{app.name}</h3>
-        <div className="h-card-links">
-          {app.links && <LinkList links={app.links} />}
-          {hiddenCount > 0 && (
-            <button
-              type="button"
-              className="h-see-more"
-              onClick={() => setSeeMore((s) => !s)}
-            >
-              {seeMore ? '↑ less' : `+${hiddenCount} more`}
-            </button>
-          )}
-          {seeMore && app.hiddenLinks && (
-            <LinkList links={app.hiddenLinks} />
-          )}
-        </div>
+      <h3 className="h-card-name">{app.name}</h3>
+      <div className="h-card-links">
+        {app.links && <LinkList links={app.links} />}
+        {hiddenCount > 0 && (
+          <button
+            type="button"
+            className="h-see-more"
+            onClick={() => setSeeMore((s) => !s)}
+          >
+            {seeMore ? '↑ less' : `+${hiddenCount} more`}
+          </button>
+        )}
+        {seeMore && app.hiddenLinks && (
+          <LinkList links={app.hiddenLinks} />
+        )}
       </div>
-    </article>
+    </wa-card>
   )
 }
