@@ -20,7 +20,7 @@
   position: absolute;
   inset: 0 auto 0 0;
   width: 3px;
-  background: #a855f7;
+  background: #38bdf8;
   border-radius: 16px 0 0 16px;
   z-index: 1;
   pointer-events: none;
@@ -44,7 +44,7 @@
 }
 
 .h-toggle:hover {
-  background: color-mix(in srgb, #a855f7 4%, var(--wa-color-surface-lowered));
+  background: color-mix(in srgb, #38bdf8 4%, var(--wa-color-surface-lowered));
 }
 
 .h-toggle-left {
@@ -66,7 +66,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #a855f7;
+  color: #38bdf8;
   opacity: 0.65;
 }
 
@@ -131,8 +131,8 @@
 
 .h-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 32px rgba(168, 85, 247, 0.13);
-  border-color: rgba(168, 85, 247, 0.38);
+  box-shadow: 0 10px 32px rgba(56, 189, 248, 0.13);
+  border-color: rgba(56, 189, 248, 0.38);
 }
 
 @keyframes h-fade-up {
@@ -207,11 +207,11 @@
   font-family: inherit;
 
   /* default = brand */
-  --btn-fg: #a855f7;
-  --btn-bg: rgba(168, 85, 247, 0.1);
-  --btn-border: rgba(168, 85, 247, 0.28);
-  --btn-bg-hover: rgba(168, 85, 247, 0.17);
-  --btn-border-hover: rgba(168, 85, 247, 0.5);
+  --btn-fg: #38bdf8;
+  --btn-bg: rgba(56, 189, 248, 0.1);
+  --btn-border: rgba(56, 189, 248, 0.28);
+  --btn-bg-hover: rgba(56, 189, 248, 0.17);
+  --btn-border-hover: rgba(56, 189, 248, 0.5);
 }
 
 .h-link-btn:hover {
@@ -222,11 +222,11 @@
 
 .h-link-btn[data-v="brand"],
 .h-link-btn[data-v=""] {
-  --btn-fg: #a855f7;
-  --btn-bg: rgba(168, 85, 247, 0.1);
-  --btn-border: rgba(168, 85, 247, 0.28);
-  --btn-bg-hover: rgba(168, 85, 247, 0.17);
-  --btn-border-hover: rgba(168, 85, 247, 0.5);
+  --btn-fg: #38bdf8;
+  --btn-bg: rgba(56, 189, 248, 0.1);
+  --btn-border: rgba(56, 189, 248, 0.28);
+  --btn-bg-hover: rgba(56, 189, 248, 0.17);
+  --btn-border-hover: rgba(56, 189, 248, 0.5);
 }
 
 .h-link-btn[data-v="success"] {
@@ -278,8 +278,8 @@
 }
 
 .h-see-more:hover {
-  border-color: #a855f7;
-  color: #a855f7;
+  border-color: #38bdf8;
+  color: #38bdf8;
 }
 
 /* ─── Skeleton shimmer ──────────────────────────────────────── */
@@ -327,7 +327,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    color-mix(in srgb, #a855f7 10%, transparent) 50%,
+    color-mix(in srgb, #38bdf8 10%, transparent) 50%,
     transparent 100%
   );
   animation: h-shimmer 1.6s ease-in-out infinite;
@@ -364,7 +364,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #a855f7;
+  color: #38bdf8;
 }
 
 .h-keys-th {
