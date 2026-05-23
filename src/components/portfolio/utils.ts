@@ -1,5 +1,5 @@
 const API_BASE = 'https://app-api-pr9v.onrender.com/portfolio'
-const IMG_BASE = 'https://res.cloudinary.com/duxmjjxns/image/upload/t_portfolio_icon/'
+const IMG_BASE = 'https://res.cloudinary.com/duxmjjxns/image/upload/t_portfolio_icon'
 const GH_BASE = "https://github.com/OozoraHaruto"
 
 export function imgUrl(path: string): string {

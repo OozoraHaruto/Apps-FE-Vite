@@ -8,6 +8,8 @@ import Login from './pages/Login'
 import Tools from './pages/Tools'
 import PasswordGenerator from './pages/tools/PasswordGenerator'
 import JsonHelper from './pages/tools/JsonHelper'
+import Privacy from './pages/privacy'
+import { PRIVACY_DATA } from './data/privacyData'
 
 import '@web.awesome.me/webawesome-pro/dist/components/page/page.js'
 import PageHeader from './components/PageHeader'
@@ -53,7 +55,14 @@ export default function App() {
   const location = useLocation()
   const isToolPage = location.pathname.startsWith('/tools/')
   const isPortfolio = location.pathname === '/portfolio'
-  const header = PAGE_HEADERS[location.pathname]
+
+  const privacyMatch = location.pathname.match(/^\/privacy\/([^/]+)$/)
+  const privacyData = privacyMatch ? PRIVACY_DATA[privacyMatch[1]] : undefined
+  const header = PAGE_HEADERS[location.pathname] ?? (
+    privacyData
+      ? { eyebrow: privacyData.appName, title: 'Privacy Policy', color: PAGE_COLORS.apps }
+      : undefined
+  )
 
   return (
     <wa-page>
@@ -102,6 +111,7 @@ export default function App() {
           <Route path="/tools" element={<Tools />} />
           <Route path="/tools/password-generator" element={<PasswordGenerator />} />
           <Route path="/tools/json-helper" element={<JsonHelper />} />
+          <Route path="/privacy/:appId" element={<Privacy />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </div>

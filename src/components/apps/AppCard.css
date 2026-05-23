@@ -24,7 +24,13 @@
   justify-content: center;
   font-size: 2rem;
   flex-shrink: 0;
-  border: 1px solid rgba(240, 193, 74, 0.15);
+}
+
+.app-card-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 .app-card-body {
@@ -104,6 +110,13 @@
   border: 1px solid color-mix(in srgb, var(--chip-color, currentColor) 25%, transparent);
 }
 
+.app-card-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .app-store-btn {
   display: inline-flex;
   align-items: center;
@@ -124,6 +137,27 @@
   border-color: rgba(240, 193, 74, 0.4);
 }
 
+.app-privacy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--wa-color-text-subtle);
+  background: var(--wa-color-surface-low);
+  border: 1px solid var(--wa-color-surface-border);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.app-privacy-link:hover {
+  background: var(--wa-color-surface-raised);
+  border-color: var(--wa-color-neutral-border);
+  color: var(--wa-color-text);
+}
+
 @media (max-width: 480px) {
   .app-card {
     grid-template-columns: 56px 1fr;
@@ -135,6 +169,10 @@
     width: 56px;
     height: 56px;
     font-size: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .app-card-icon-img {
     border-radius: 12px;
   }
 }

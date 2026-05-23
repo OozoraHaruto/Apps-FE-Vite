@@ -10,4 +10,5 @@ export interface AppListing {
   price: 'Free' | string
   storeUrl?: string
   category?: string
+  privacyPath?: string
 }
