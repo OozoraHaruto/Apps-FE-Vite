@@ -27,7 +27,7 @@ export default function UserMenu() {
       </Link>
       <ThemeSwitcher />
       <wa-button appearance="plain" onClick={logout} label="Logout">
-        <wa-icon name="arrow-right-from-bracket" />
+        <wa-icon name="arrow-right-from-bracket" family="duotone" />
       </wa-button>
     </div>
   )

@@ -61,7 +61,7 @@ export default function Portfolio() {
   if (state.error) {
     return (
       <wa-callout variant="danger">
-        <wa-icon slot="icon" name="circle-xmark" />
+        <wa-icon slot="icon" name="circle-xmark" family="duotone" />
         Failed to load portfolio: {state.error}
       </wa-callout>
     )

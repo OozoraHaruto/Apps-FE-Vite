@@ -36,7 +36,7 @@ export default function Tools() {
                     <h2 className="tool-list-card-name">{tool.name}</h2>
                     <p className="tool-list-card-desc">{tool.description}</p>
                   </div>
-                  <wa-icon name="arrow-right" className="tool-card-arrow" aria-hidden="true" />
+                  <wa-icon name="arrow-right" family="duotone" className="tool-card-arrow" aria-hidden="true" />
                 </div>
               </wa-card>
             </Link>

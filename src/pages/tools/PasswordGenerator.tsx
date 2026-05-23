@@ -148,7 +148,7 @@ export default function PasswordGenerator() {
   return (
     <div className="tool-page">
       <wa-button appearance="plain" onClick={() => navigate('/tools')}>
-        <wa-icon slot="start" name="arrow-left" />
+        <wa-icon slot="start" name="arrow-left" family="duotone" />
         Back to Tools
       </wa-button>
 
@@ -209,7 +209,7 @@ export default function PasswordGenerator() {
             <div className="pwd-results">
               {warning && (
                 <wa-callout variant="warning">
-                  <wa-icon slot="icon" name="triangle-exclamation" />
+                  <wa-icon slot="icon" name="triangle-exclamation" family="duotone" />
                   {warning}
                 </wa-callout>
               )}

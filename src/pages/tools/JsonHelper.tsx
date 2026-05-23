@@ -56,7 +56,7 @@ export default function JsonHelper() {
   return (
     <div className="tool-page json-tool-page">
       <wa-button appearance="plain" onClick={() => navigate('/tools')}>
-        <wa-icon slot="start" name="arrow-left" />
+        <wa-icon slot="start" name="arrow-left" family="duotone" />
         Back to Tools
       </wa-button>
 
@@ -85,7 +85,7 @@ export default function JsonHelper() {
 
           {error && (
             <wa-callout variant="danger" className="json-error">
-              <wa-icon slot="icon" name="circle-xmark" />
+              <wa-icon slot="icon" name="circle-xmark" family="duotone" />
               {error}
             </wa-callout>
           )}

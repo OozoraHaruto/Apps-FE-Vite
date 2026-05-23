@@ -21,7 +21,7 @@ export default function ThemeSwitcher() {
       {/* Light/Dark/Auto */}
       <wa-dropdown placement="bottom-end">
         <wa-button slot="trigger" variant="neutral" appearance="plain">
-          <wa-icon name={current.icon} label={current.label}></wa-icon>
+          <wa-icon name={current.icon} label={current.label} family="duotone"></wa-icon>
         </wa-button>
         {THEMES.map((t) => (
           <wa-dropdown-item
@@ -30,7 +30,7 @@ export default function ThemeSwitcher() {
             checked={theme === t.value || undefined}
             onClick={() => setTheme(t.value)}
           >
-            <wa-icon name={t.icon} slot="icon"></wa-icon>
+            <wa-icon name={t.icon} slot="icon" family="duotone"></wa-icon>
             {t.label}
           </wa-dropdown-item>
         ))}

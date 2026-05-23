@@ -86,13 +86,13 @@ export default function App() {
         <nav className="app-header-nav" aria-label="Main navigation">
           {NAV_LINKS.map(({ to, label, icon }) => (
             <Link key={to} to={to} className="app-header-nav-link">
-              {icon && <wa-icon name={icon}></wa-icon>}
+              {icon && <wa-icon name={icon} family="duotone"></wa-icon>}
               {label}
             </Link>
           ))}
           {hasHarutoAccess && (
             <Link to="/haruto" className="app-header-nav-link">
-              <wa-icon name="face-dizzy"></wa-icon>
+              <wa-icon name="face-dizzy" family="duotone"></wa-icon>
               Haruto
             </Link>
           )}

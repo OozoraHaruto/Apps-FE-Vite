@@ -84,7 +84,7 @@ export default function AppDetail() {
                 pill
               >
                 Download on App Store
-                <wa-icon slot="end" name="arrow-up-right-from-square" />
+                <wa-icon slot="end" name="arrow-up-right-from-square" family="duotone" />
               </wa-button>
             )}
           </div>

@@ -63,14 +63,14 @@ export default function Me() {
           <ul className="me-info-list">
             <li className="me-info-row">
               <span className="me-info-label">
-                <wa-icon name="fingerprint" variant="solid" />
+                <wa-icon name="fingerprint" family="duotone" />
                 User ID
               </span>
               <code className="me-info-value">{profileId ?? '—'}</code>
             </li>
             <li className="me-info-row">
               <span className="me-info-label">
-                <wa-icon name="clock" variant="solid" />
+                <wa-icon name="clock" family="duotone" />
                 Session expires
               </span>
               <span className="me-info-value me-info-value--muted">{sessionExpires}</span>
@@ -91,7 +91,7 @@ export default function Me() {
               onClick={refresh}
               loading={loading || undefined}
             >
-              <wa-icon slot="start" name="rotate" variant="solid" />
+              <wa-icon slot="start" name="rotate" family="duotone" />
               Refresh session
             </wa-button>
             <wa-button
@@ -100,7 +100,7 @@ export default function Me() {
               class="me-logout-btn"
               onClick={logout}
             >
-              <wa-icon slot="start" name="right-from-bracket" variant="solid" />
+              <wa-icon slot="start" name="right-from-bracket" family="duotone" />
               Sign out
             </wa-button>
           </div>
