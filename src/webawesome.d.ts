@@ -29,6 +29,9 @@ type WAElement<T = HTMLElement> = DetailedHTMLProps<HTMLAttributes<T>, T> & {
   title?: string
   family?: string
   'auto-width'?: boolean | string
+  href?: string
+  target?: string
+  overview?: boolean
 }
 
 declare module 'react' {

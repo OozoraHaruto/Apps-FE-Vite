@@ -3,4 +3,5 @@ export const PAGE_COLORS = {
   tools:     '#84cc16',
   portfolio: '#38bdf8',
   me:        '#557bf7',
+  haruto:    '#a855f7',
 } as const

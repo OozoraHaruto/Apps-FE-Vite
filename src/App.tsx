@@ -11,6 +11,7 @@ import Tools from './pages/Tools'
 import PasswordGenerator from './pages/tools/PasswordGenerator'
 import JsonHelper from './pages/tools/JsonHelper'
 import Me from './pages/Me'
+import Haruto from './pages/Haruto'
 import { APPS, PRIVACY_DATA } from './data/appsData'
 
 import '@web.awesome.me/webawesome-pro/dist/components/page/page.js'
@@ -53,10 +54,14 @@ const PAGE_HEADERS: Record<string, PageHeaderConfig> = {
   '/tools/password-generator': { eyebrow: 'Tools',     title: 'Password Generator',       color: PAGE_COLORS.tools },
   '/tools/json-helper':        { eyebrow: 'Tools',     title: 'JSON Helper',              color: PAGE_COLORS.tools },
   '/me':                       { eyebrow: 'Account',   title: 'My Profile',               color: PAGE_COLORS.me },
+  '/haruto':                   { eyebrow: 'Haruto',    title: "Haruto's Apps",            color: PAGE_COLORS.haruto },
 }
 
 export default function App() {
-  const { user } = useAuth()
+  const { user, payload } = useAuth()
+  const hasHarutoAccess = !!(user && payload?.allowed.some(
+    (p) => p === '*' || p === 'haruto/*' || p === 'haruto/appsOfficial'
+  ))
   const location = useLocation()
   const isToolPage = location.pathname.startsWith('/tools/')
   const isPortfolio = location.pathname === '/portfolio'
@@ -83,6 +88,12 @@ export default function App() {
               {label}
             </Link>
           ))}
+          {hasHarutoAccess && (
+            <Link to="/haruto" className="app-header-nav-link">
+              <wa-icon name="house-chimney"></wa-icon>
+              Haruto
+            </Link>
+          )}
         </nav>
         <div className="header-actions">
           <UserMenu />
@@ -145,6 +156,7 @@ export default function App() {
           <Route path="/tools/password-generator" element={<PasswordGenerator />} />
           <Route path="/tools/json-helper" element={<JsonHelper />} />
           <Route path="/me" element={<Me />} />
+          <Route path="/haruto" element={<Haruto />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
