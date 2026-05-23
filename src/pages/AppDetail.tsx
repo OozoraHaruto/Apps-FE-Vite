@@ -37,7 +37,7 @@ export default function AppDetail() {
     }
   }, [location.hash])
 
-  if (!app) return <Navigate to="/apps" replace />
+  if (!app) return <Navigate to="/" replace />
 
   return (
     <div className="app-detail">

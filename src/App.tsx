@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useLocation } from 'react-router'
+import { Routes, Route, Link, Navigate, useLocation } from 'react-router'
 import ThemeSwitcher from './components/theme/ThemeSwitcher'
 import UserMenu from './components/user/UserMenu'
 import Home from './pages/Home'
@@ -137,6 +137,7 @@ export default function App() {
           <Route path="/tools/password-generator" element={<PasswordGenerator />} />
           <Route path="/tools/json-helper" element={<JsonHelper />} />
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </wa-page>
