@@ -1,0 +1,134 @@
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .project-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.project-card {
+  border-radius: 14px;
+  border: 1px solid var(--wa-color-surface-border);
+  background: var(--wa-color-surface-raised, var(--wa-color-surface-default));
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  border-color: rgba(240, 193, 74, 0.3);
+  box-shadow: 0 4px 20px rgba(240, 193, 74, 0.06);
+}
+
+.project-card-inner {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.project-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.project-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.project-name {
+  margin: 0;
+  font-family: var(--wa-font-family-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.project-updated {
+  margin: 0;
+  font-size: 0.7rem;
+  opacity: 0.4;
+  white-space: nowrap;
+  padding-top: 0.15rem;
+}
+
+.project-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  opacity: 0.7;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #f0c14a;
+  background: rgba(240, 193, 74, 0.1);
+  border: 1px solid rgba(240, 193, 74, 0.2);
+  transition: background 0.2s ease;
+}
+
+.project-link:hover {
+  background: rgba(240, 193, 74, 0.18);
+}
+
+.projects-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--wa-color-surface-border);
+  color: inherit;
+  align-self: center;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.projects-toggle:hover {
+  border-color: rgba(240, 193, 74, 0.4);
+  background: rgba(240, 193, 74, 0.06);
+  color: #f0c14a;
+}

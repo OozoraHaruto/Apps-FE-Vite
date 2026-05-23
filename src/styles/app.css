@@ -1,0 +1,197 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --wa-font-family-body: Nunito, sans-serif;
+  --wa-font-family-heading: Fredoka, sans-serif;
+  --wa-font-family-code: "Azeret Mono", monospace;
+  --wa-font-family-longform: BioRhyme, serif;
+  --wa-font-weight-body: 500;
+  --wa-font-weight-heading: 600;
+  --wa-font-weight-code: 400;
+  --wa-font-weight-longform: 400;
+  --wa-border-radius-scale: 1.75;
+  --wa-border-width-scale: 1;
+  --wa-space-scale: 1;
+}
+
+/* ---------- Breakpoint tokens ---------- */
+:root {
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- wa-page: header slot ---------- */
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  height: 100%;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.app-brand {
+  font-family: var(--wa-font-family-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--wa-color-text);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ---------- Header inline nav ---------- */
+.app-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.app-header-nav-link {
+  padding: 0.375rem 0.625rem;
+  color: var(--wa-color-text-subtle);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--wa-border-radius-medium);
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.app-header-nav-link:hover {
+  color: var(--wa-color-text);
+  background: var(--wa-color-surface-low);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ---------- wa-page: sidebar navigation slot ---------- */
+.page-side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 1rem 0.5rem;
+}
+
+.page-side-nav-label {
+  margin: 0 0 0.5rem;
+  padding: 0 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--wa-color-text-subtle);
+}
+
+.page-side-nav-link {
+  display: block;
+  padding: 0.45rem 0.75rem;
+  color: var(--wa-color-text-link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: var(--wa-border-radius-medium);
+  transition: background 0.15s, color 0.15s;
+}
+
+.page-side-nav-link:hover {
+  background: var(--wa-color-surface-low);
+  color: var(--wa-color-text);
+}
+
+/* ---------- wa-page: main content ---------- */
+.page-content {
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .page-content { padding: 1rem; }
+}
+
+/* ---------- Portfolio anchor targets ---------- */
+.pf-section {
+  scroll-margin-top: calc(var(--header-height, 64px) + 1rem);
+}
+
+/* ---------- Generic page shell ---------- */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.page h1 {
+  font-size: clamp(1.5rem, 4vw + 1rem, 2.25rem);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* ---------- Grid ---------- */
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ---------- Shared tool-page shell ---------- */
+.tool-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.tool-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--wa-color-text-subtle);
+  text-decoration: none;
+  transition: color 0.2s;
+  width: fit-content;
+}
+
+.tool-back-link:hover {
+  color: var(--wa-color-text);
+}
+
+.tool-privacy-note {
+  font-size: 0.8rem;
+  color: var(--wa-color-text-subtle);
+  text-align: center;
+  margin: 0;
+}

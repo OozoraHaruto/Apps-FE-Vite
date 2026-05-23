@@ -1,0 +1,79 @@
+.tools-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tool-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.875rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .tool-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.tool-list-card {
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+  padding: 1.25rem;
+  border-radius: 14px;
+  border: 1px solid var(--wa-color-surface-border);
+  text-decoration: none;
+  color: inherit;
+  background: var(--wa-color-surface-raised);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.tool-list-card:hover {
+  border-color: #84cc16;
+  box-shadow: 0 4px 16px rgba(132, 204, 22, 0.18);
+  transform: translateY(-2px);
+}
+
+.tool-list-card-icon {
+  font-size: 2.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 3rem;
+  text-align: center;
+}
+
+.tool-list-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.tool-list-card-name {
+  margin: 0 0 0.3rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  font-family: var(--wa-font-family-heading);
+}
+
+.tool-list-card-desc {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--wa-color-text-subtle);
+  line-height: 1.45;
+}
+
+.tool-list-card-arrow {
+  color: var(--wa-color-text-subtle);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.tool-list-card:hover .tool-list-card-arrow {
+  transform: translateX(4px);
+  color: #84cc16;
+}

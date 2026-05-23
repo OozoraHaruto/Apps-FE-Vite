@@ -1,0 +1,110 @@
+.hub-panel {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  text-decoration: none;
+  overflow: hidden;
+  transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--hub-bg);
+  background-image: radial-gradient(circle, var(--hub-dot) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--hub-text);
+}
+
+.hub-panel:hover {
+  flex: 1.65;
+}
+
+.hub-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse 90% 55% at 0% 100%, var(--hub-overlay) 0%, transparent 65%);
+}
+
+.hub-numeral {
+  position: absolute;
+  top: -0.12em;
+  right: -0.04em;
+  font-family: var(--wa-font-family-heading);
+  font-size: clamp(9rem, 20vw, 22rem);
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  color: var(--hub-accent);
+  opacity: var(--hub-numeral-opacity);
+  transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hub-panel:hover .hub-numeral {
+  opacity: var(--hub-numeral-hover-opacity);
+  transform: scale(1.04) translateX(-0.02em);
+}
+
+.hub-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.hub-eyebrow {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.hub-heading {
+  margin: 0;
+  font-family: var(--wa-font-family-heading);
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.hub-body {
+  margin: 0;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  opacity: 0.65;
+  max-width: 24ch;
+  line-height: 1.5;
+}
+
+.hub-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  width: fit-content;
+  background: var(--hub-accent);
+  color: var(--hub-cta-text);
+  transition: gap 0.25s ease;
+}
+
+.hub-panel:hover .hub-cta {
+  gap: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .hub-panel {
+    min-height: 260px;
+  }
+
+  .hub-panel:hover {
+    flex: 1;
+  }
+}

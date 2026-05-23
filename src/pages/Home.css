@@ -1,0 +1,14 @@
+.home-hub {
+  display: flex;
+  gap: 3px;
+  min-height: clamp(380px, calc(100dvh - 120px), 800px);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .home-hub {
+    flex-direction: column;
+    min-height: auto;
+  }
+}

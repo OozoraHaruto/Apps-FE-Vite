@@ -1,0 +1,23 @@
+.json-tool-page {
+  max-width: 720px;
+}
+
+.json-card {
+  width: 100%;
+}
+
+.json-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.json-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.json-error {
+  margin-top: 0.25rem;
+}
