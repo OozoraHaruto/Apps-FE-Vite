@@ -82,6 +82,7 @@ function KeysTable({ title, keys }: { title: string; keys: ProductKey[] }) {
         <tr>
           <th className="h-keys-th">Item</th>
           <th className="h-keys-th">Product Key</th>
+          <th className="h-keys-th h-keys-th--copy" />
         </tr>
       </thead>
       <tbody>
@@ -90,11 +91,16 @@ function KeysTable({ title, keys }: { title: string; keys: ProductKey[] }) {
             <tr key={i}>
               <th scope="row">{key.item}</th>
               <td>{key.productKey}</td>
+              <td className="h-keys-td--copy">
+                <wa-copy-button value={key.productKey} {...{ tooltip: 'none' } as object}>
+                  <wa-button variant="neutral" appearance="plain" size="xs"><wa-icon name="copy" label="Copy" /></wa-button>
+                </wa-copy-button>
+              </td>
             </tr>
           ))
         ) : (
           <tr>
-            <td colSpan={2} style={{ color: 'var(--wa-color-text-subtle)', padding: '0.5rem' }}>
+            <td colSpan={3} style={{ color: 'var(--wa-color-text-subtle)', padding: '0.5rem' }}>
               —
             </td>
           </tr>

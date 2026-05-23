@@ -190,3 +190,19 @@
   word-break: break-all;
   vertical-align: middle;
 }
+
+.h-keys-th--copy,
+.h-keys-td--copy {
+  width: 2rem;
+  padding-left: 0.25rem;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.h-keys-td--copy {
+  line-height: 0;
+}
+
+.h-keys-td--copy wa-copy-button {
+  display: block;
+}
