@@ -21,8 +21,8 @@ import { PAGE_COLORS } from './lib/colors'
 
 const NAV_LINKS = [
   { to: '/apps', label: 'Apps', icon: 'grid-2' },
-  { to: '/tools', label: 'Tools', icon: 'wrench' },
-  { to: '/portfolio', label: 'Portfolio', icon: 'id-card' },
+  { to: '/tools', label: 'Tools', icon: 'screwdriver-wrench' },
+  { to: '/portfolio', label: 'Portfolio', icon: 'briefcase' },
 ]
 
 const TOOL_NAV = [
@@ -90,7 +90,7 @@ export default function App() {
           ))}
           {hasHarutoAccess && (
             <Link to="/haruto" className="app-header-nav-link">
-              <wa-icon name="house-chimney"></wa-icon>
+              <wa-icon name="face-dizzy"></wa-icon>
               Haruto
             </Link>
           )}
