@@ -1,6 +1,7 @@
 import { Routes, Route, Link, Navigate, useLocation } from 'react-router'
 import ThemeSwitcher from './components/theme/ThemeSwitcher'
 import UserMenu from './components/user/UserMenu'
+import { useAuth } from './contexts/AuthContext'
 import Home from './pages/Home'
 import Apps from './pages/Apps'
 import AppDetail, { privacySectionId } from './pages/AppDetail'
@@ -54,6 +55,7 @@ const PAGE_HEADERS: Record<string, PageHeaderConfig> = {
 }
 
 export default function App() {
+  const { user } = useAuth()
   const location = useLocation()
   const isToolPage = location.pathname.startsWith('/tools/')
   const isPortfolio = location.pathname === '/portfolio'
@@ -80,7 +82,7 @@ export default function App() {
         </nav>
         <div className="header-actions">
           <UserMenu />
-          <ThemeSwitcher />
+          {!user && <ThemeSwitcher />}
         </div>
       </div>
 
