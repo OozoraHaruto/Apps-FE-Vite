@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import type { AppListing, Platform } from '../../models/app'
+import { PRIVACY_DATA } from '../../data/appsData'
 import './AppCard.css'
 
 const PLATFORM_META: Record<Platform, { label: string; color: string }> = {
@@ -62,8 +63,8 @@ export default function AppCard({ app }: { app: AppListing }) {
                 </svg>
               </a>
             )}
-            {app.privacyPath && (
-              <Link to={app.privacyPath} className="app-privacy-link">
+            {PRIVACY_DATA[app.id] && (
+              <Link to={`/privacy/${app.id}`} className="app-privacy-link">
                 Privacy Policy
               </Link>
             )}

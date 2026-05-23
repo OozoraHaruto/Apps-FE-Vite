@@ -10,5 +10,18 @@ export interface AppListing {
   price: 'Free' | string
   storeUrl?: string
   category?: string
-  privacyPath?: string
+}
+
+export interface PrivacySection {
+  color: string
+  title: string
+  facts: string[]
+}
+
+export interface PrivacyData {
+  appName: string
+  icon: string
+  footerText: string
+  intro: string
+  sections: PrivacySection[]
 }

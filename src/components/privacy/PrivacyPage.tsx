@@ -1,5 +1,5 @@
 import { useTitle } from '../../hooks/useTitle'
-import type { PrivacyData } from '../../data/privacyData'
+import type { PrivacyData } from '../../models/app'
 import './PrivacyPage.css'
 
 const DROPS = Array.from({ length: 24 }, (_, i) => ({

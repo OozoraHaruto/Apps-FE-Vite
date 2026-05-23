@@ -1,23 +1,7 @@
 import { useTitle } from '../hooks/useTitle'
-import type { AppListing } from '../models/app'
+import { APPS } from '../data/appsData'
 import AppCard from '../components/apps/AppCard'
 import './Apps.css'
-
-const APPS: AppListing[] = [
-  {
-    id: 'sg-weather',
-    name: 'SG Weather Application',
-    subtitle: 'A more accurate SG weather app',
-    description:
-      'Reads temperature from approximately 22 Singapore locations sourced from NEA (National Environment Agency) via data.gov.sg. Provides location-specific readings rather than a single generalised value — covering areas like Jurong, Pasir Ris, and more. No advertisements, on-device location calculations to protect your privacy, and home screen widgets included.',
-    icon: 'https://res.cloudinary.com/duxmjjxns/image/upload/t_portfolio_icon/portfolio/projects/uy8pbwcpu3kwhhtton1d',
-    platforms: ['iOS', 'iPadOS', 'macOS', 'watchOS', 'visionOS'],
-    price: 'Free',
-    storeUrl: 'https://apps.apple.com/sg/app/sg-weather-application/id1535913667',
-    category: 'Reference',
-    privacyPath: '/privacy/sg-weather',
-  },
-]
 
 export default function Apps() {
   useTitle('Apps', true)

@@ -1,5 +1,5 @@
 import { useParams, Navigate } from 'react-router'
-import { PRIVACY_DATA } from '../../data/privacyData'
+import { PRIVACY_DATA } from '../../data/appsData'
 import PrivacyPage from '../../components/privacy/PrivacyPage'
 
 export default function Privacy() {

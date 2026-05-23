@@ -9,7 +9,7 @@ import Tools from './pages/Tools'
 import PasswordGenerator from './pages/tools/PasswordGenerator'
 import JsonHelper from './pages/tools/JsonHelper'
 import Privacy from './pages/privacy'
-import { PRIVACY_DATA } from './data/privacyData'
+import { PRIVACY_DATA } from './data/appsData'
 
 import '@web.awesome.me/webawesome-pro/dist/components/page/page.js'
 import PageHeader from './components/PageHeader'
