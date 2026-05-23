@@ -1,108 +1,85 @@
 .app-card {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 1.25rem;
-  padding: 1.5rem;
-  border-radius: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem 1.25rem;
+  border-radius: 20px;
   border: 1px solid var(--wa-color-surface-border);
   background: var(--wa-color-surface-raised, var(--wa-color-surface-default));
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  text-align: center;
+  cursor: pointer;
 }
 
 .app-card:hover {
   border-color: rgba(240, 193, 74, 0.35);
   box-shadow: 0 4px 24px rgba(240, 193, 74, 0.08);
+  transform: translateY(-2px);
+}
+
+.app-card-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
 }
 
 .app-card-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 16px;
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
   background: #0d0c14;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .app-card-icon-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 18px;
 }
 
-.app-card-body {
+.app-card-info {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  min-width: 0;
-}
-
-.app-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.2rem;
+  width: 100%;
 }
 
 .app-card-name {
   margin: 0;
   font-family: var(--wa-font-family-heading);
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .app-card-subtitle {
-  margin: 0.1rem 0 0;
-  font-size: 0.875rem;
-  opacity: 0.6;
-}
-
-.app-card-price {
-  flex-shrink: 0;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.6rem;
-  border-radius: 100px;
-  background: rgba(48, 209, 88, 0.12);
-  color: #30D158;
-  border: 1px solid rgba(48, 209, 88, 0.2);
-}
-
-.app-card-desc {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.65;
-  opacity: 0.75;
-}
-
-.app-card-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  opacity: 0.6;
+  line-height: 1.4;
 }
 
 .platform-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
 .platform-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.2rem 0.65rem;
+  padding: 0.15rem 0.55rem;
   border-radius: 100px;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--chip-color, currentColor);
@@ -110,11 +87,14 @@
   border: 1px solid color-mix(in srgb, var(--chip-color, currentColor) 25%, transparent);
 }
 
-.app-card-links {
+.app-card-actions {
+  position: relative;
+  z-index: 1;
   display: flex;
-  align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.25rem;
 }
 
 .app-store-btn {
@@ -123,7 +103,7 @@
   gap: 0.4rem;
   padding: 0.4rem 1rem;
   border-radius: 100px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   text-decoration: none;
   color: #f0c14a;
@@ -135,44 +115,4 @@
 .app-store-btn:hover {
   background: rgba(240, 193, 74, 0.18);
   border-color: rgba(240, 193, 74, 0.4);
-}
-
-.app-privacy-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 1rem;
-  border-radius: 100px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--wa-color-text-subtle);
-  background: var(--wa-color-surface-low);
-  border: 1px solid var(--wa-color-surface-border);
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.app-privacy-link:hover {
-  background: var(--wa-color-surface-raised);
-  border-color: var(--wa-color-neutral-border);
-  color: var(--wa-color-text);
-}
-
-@media (max-width: 480px) {
-  .app-card {
-    grid-template-columns: 56px 1fr;
-    gap: 1rem;
-    padding: 1.25rem;
-  }
-
-  .app-card-icon {
-    width: 56px;
-    height: 56px;
-    font-size: 1.5rem;
-    border-radius: 12px;
-  }
-
-  .app-card-icon-img {
-    border-radius: 12px;
-  }
 }
