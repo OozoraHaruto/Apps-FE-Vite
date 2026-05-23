@@ -14,13 +14,14 @@ import Me from './pages/Me'
 import { APPS, PRIVACY_DATA } from './data/appsData'
 
 import '@web.awesome.me/webawesome-pro/dist/components/page/page.js'
+import '@web.awesome.me/webawesome-pro/dist/components/icon/icon.js'
 import PageHeader from './components/PageHeader'
 import { PAGE_COLORS } from './lib/colors'
 
 const NAV_LINKS = [
-  { to: '/apps', label: 'Apps' },
-  { to: '/tools', label: 'Tools' },
-  { to: '/portfolio', label: 'Portfolio' },
+  { to: '/apps', label: 'Apps', icon: 'grid-2' },
+  { to: '/tools', label: 'Tools', icon: 'wrench' },
+  { to: '/portfolio', label: 'Portfolio', icon: 'id-card' },
 ]
 
 const TOOL_NAV = [
@@ -76,8 +77,11 @@ export default function App() {
       <div slot="header" className="app-header">
         <Link to="/" className="app-brand">Haruto Apps</Link>
         <nav className="app-header-nav" aria-label="Main navigation">
-          {NAV_LINKS.map(({ to, label }) => (
-            <Link key={to} to={to} className="app-header-nav-link">{label}</Link>
+          {NAV_LINKS.map(({ to, label, icon }) => (
+            <Link key={to} to={to} className="app-header-nav-link">
+              {icon && <wa-icon name={icon}></wa-icon>}
+              {label}
+            </Link>
           ))}
         </nav>
         <div className="header-actions">

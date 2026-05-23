@@ -55,6 +55,9 @@ html {
 }
 
 .app-header-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
   padding: 0.375rem 0.625rem;
   color: var(--wa-color-text-subtle);
   text-decoration: none;
