@@ -10,6 +10,8 @@
     "lint": "tsc -b --noEmit"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "@web.awesome.me/webawesome-pro": "3.7.0",
     "crypto-js": "^4.2.0",
     "react": "^19.0.0",

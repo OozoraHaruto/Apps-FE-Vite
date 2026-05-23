@@ -1,4 +1,6 @@
 import { Routes, Route, Link, Navigate, useLocation } from 'react-router'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import ThemeSwitcher from './components/theme/ThemeSwitcher'
 import UserMenu from './components/user/UserMenu'
 import { useAuth } from './contexts/AuthContext'
@@ -145,6 +147,9 @@ export default function App() {
           )}
         </nav>
       )}
+
+      {import.meta.env.PROD && <Analytics />}
+      {import.meta.env.PROD && <SpeedInsights />}
 
       <div className="page-content">
         <Routes>
