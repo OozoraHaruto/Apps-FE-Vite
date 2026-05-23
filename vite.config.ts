@@ -8,6 +8,7 @@ export default defineConfig({
     react()
   ],
   build: {
+    target: ['chrome88', 'edge88', 'firefox78', 'safari14'],
     rollupOptions: {
       output: {
         manualChunks(id) {
