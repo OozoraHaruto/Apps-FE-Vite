@@ -4,6 +4,21 @@
   gap: 0.5rem;
 }
 
+.user-menu-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--wa-border-radius-medium);
+  padding: 0.125rem 0.25rem;
+  transition: background 0.15s;
+}
+
+.user-menu-identity:hover {
+  background: var(--wa-color-surface-low);
+}
+
 .user-avatar {
   width: 2rem;
   height: 2rem;

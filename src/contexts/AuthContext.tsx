@@ -21,6 +21,7 @@ interface AuthContextValue {
   payload: JwtPayload | null
   login: (email: string, password: string) => Promise<void>
   logout: () => void
+  refresh: () => Promise<void>
   loading: boolean
   error: string | null
 }
@@ -87,6 +88,25 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => clearTimeout(timer)
   }, [auth?.token, logout, saveAuth])
 
+  const refresh = useCallback(async () => {
+    if (!auth) return
+    setLoading(true)
+    try {
+      const res = await fetch(`${API}/auth/refresh`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ auth: auth.payload.auth }),
+      })
+      const json = await res.json()
+      if (json.success) saveAuth(json.data.token, json.data.profile)
+      else logout()
+    } catch {
+      // keep existing token on network error
+    } finally {
+      setLoading(false)
+    }
+  }, [auth, saveAuth, logout])
+
   const login = useCallback(async (email: string, password: string) => {
     setError(null)
     setLoading(true)
@@ -114,6 +134,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       payload: auth?.payload ?? null,
       login,
       logout,
+      refresh,
       loading,
       error,
     }}>

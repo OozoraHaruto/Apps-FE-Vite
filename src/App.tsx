@@ -9,6 +9,7 @@ import Login from './pages/Login'
 import Tools from './pages/Tools'
 import PasswordGenerator from './pages/tools/PasswordGenerator'
 import JsonHelper from './pages/tools/JsonHelper'
+import Me from './pages/Me'
 import { APPS, PRIVACY_DATA } from './data/appsData'
 
 import '@web.awesome.me/webawesome-pro/dist/components/page/page.js'
@@ -49,6 +50,7 @@ const PAGE_HEADERS: Record<string, PageHeaderConfig> = {
                                  large: true, subtitle: 'Test Engineer — automation testing and quality assurance.' },
   '/tools/password-generator': { eyebrow: 'Tools',     title: 'Password Generator',       color: PAGE_COLORS.tools },
   '/tools/json-helper':        { eyebrow: 'Tools',     title: 'JSON Helper',              color: PAGE_COLORS.tools },
+  '/me':                       { eyebrow: 'Account',   title: 'My Profile',               color: PAGE_COLORS.me },
 }
 
 export default function App() {
@@ -136,6 +138,7 @@ export default function App() {
           <Route path="/tools" element={<Tools />} />
           <Route path="/tools/password-generator" element={<PasswordGenerator />} />
           <Route path="/tools/json-helper" element={<JsonHelper />} />
+          <Route path="/me" element={<Me />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

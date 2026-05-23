@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { useAuth } from '../../contexts/AuthContext'
 import './UserMenu.css'
 
@@ -12,8 +13,10 @@ export default function UserMenu() {
 
   return (
     <div className="user-menu">
-      <img src={user.icon} alt={user.name} className="user-avatar" />
-      <span className="user-name">{user.name}</span>
+      <Link to="/me" className="user-menu-identity">
+        <img src={user.icon} alt={user.name} className="user-avatar" />
+        <span className="user-name">{user.name}</span>
+      </Link>
       <wa-button appearance="plain" size="small" onClick={logout}>
         Logout
       </wa-button>
