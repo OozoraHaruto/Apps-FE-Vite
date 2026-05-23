@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { Project } from '../../models/portfolio'
 import LogoImg from './LogoImg'
 import Section from './Section'
-import { fmtDate, getCodeLogo, linkUrl } from './utils'
+import { getCodeLogo, linkUrl } from './utils'
 import './ProjectsSection.css'
 
 function ProjectCard({ project }: { project: Project }) {
