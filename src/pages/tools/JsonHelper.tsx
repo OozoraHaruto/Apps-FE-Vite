@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router'
+import { useNavigate } from 'react-router'
 import { useTitle } from '../../hooks/useTitle'
 import './JsonHelper.css'
 
@@ -13,6 +13,7 @@ type WaTextarea = HTMLElement & { value: string }
 
 export default function JsonHelper() {
   useTitle('JSON Helper', true)
+  const navigate = useNavigate()
 
   const [encoded, setEncoded] = useState('')
   const [decoded, setDecoded] = useState('')
@@ -54,9 +55,10 @@ export default function JsonHelper() {
 
   return (
     <div className="tool-page json-tool-page">
-      <Link to="/tools" className="tool-back-link">
-        ← Back to Tools
-      </Link>
+      <wa-button appearance="plain" onClick={() => navigate('/tools')}>
+        <wa-icon slot="start" name="arrow-left" />
+        Back to Tools
+      </wa-button>
 
       <wa-card className="json-card">
         <div className="json-content">

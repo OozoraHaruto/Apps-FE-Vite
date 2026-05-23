@@ -19,12 +19,6 @@
   background: var(--wa-color-surface-low);
 }
 
-.user-avatar {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  object-fit: cover;
-}
 
 .user-name {
   font-weight: 600;

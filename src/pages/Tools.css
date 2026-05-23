@@ -19,23 +19,27 @@
   }
 }
 
-.tool-list-card {
-  display: flex;
-  align-items: center;
-  gap: 1.125rem;
-  padding: 1.25rem;
-  border-radius: 14px;
-  border: 1px solid var(--wa-color-surface-border);
+.tool-card-link {
   text-decoration: none;
   color: inherit;
-  background: var(--wa-color-surface-raised);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  display: block;
+}
+
+.tool-list-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tool-list-card:hover {
-  border-color: #84cc16;
-  box-shadow: 0 4px 16px rgba(132, 204, 22, 0.18);
   transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(132, 204, 22, 0.25);
+}
+
+.tool-card-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+  width: 100%;
 }
 
 .tool-list-card-icon {
@@ -65,15 +69,13 @@
   line-height: 1.45;
 }
 
-.tool-list-card-arrow {
+.tool-card-arrow {
   color: var(--wa-color-text-subtle);
   flex-shrink: 0;
   transition: transform 0.2s ease, color 0.2s ease;
-  display: flex;
-  align-items: center;
 }
 
-.tool-list-card:hover .tool-list-card-arrow {
+.tool-list-card:hover .tool-card-arrow {
   transform: translateX(4px);
   color: #84cc16;
 }

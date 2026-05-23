@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router'
+import { useNavigate } from 'react-router'
 import { useTitle } from '../../hooks/useTitle'
 import * as ls from '../../lib/localstorage'
 import './PasswordGenerator.css'
@@ -34,6 +34,7 @@ const DEFAULT_SYMBOLS = `!"#$%&'()*+,-./:;<=>?@[]^_\`{|}~`
 
 export default function PasswordGenerator() {
   useTitle('Password Generator', true)
+  const navigate = useNavigate()
 
   const [passwordLength, setPasswordLength] = useState(() => ls.getStr(LS.length, '20'))
   const [passwordCount,  setPasswordCount]  = useState(() => ls.getStr(LS.count, '5'))
@@ -146,9 +147,10 @@ export default function PasswordGenerator() {
 
   return (
     <div className="tool-page">
-      <Link to="/tools" className="tool-back-link">
-        ← Back to Tools
-      </Link>
+      <wa-button appearance="plain" onClick={() => navigate('/tools')}>
+        <wa-icon slot="start" name="arrow-left" />
+        Back to Tools
+      </wa-button>
 
       <wa-card className="pwd-card">
         <div className="pwd-content">

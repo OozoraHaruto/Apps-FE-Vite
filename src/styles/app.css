@@ -182,21 +182,6 @@ html {
   width: 100%;
 }
 
-.tool-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--wa-color-text-subtle);
-  text-decoration: none;
-  transition: color 0.2s;
-  width: fit-content;
-}
-
-.tool-back-link:hover {
-  color: var(--wa-color-text);
-}
 
 .tool-privacy-note {
   font-size: 0.8rem;

@@ -21,7 +21,7 @@ type WAElement<T = HTMLElement> = DetailedHTMLProps<HTMLAttributes<T>, T> & {
   autocomplete?: string
   required?: boolean
   loading?: boolean
-  value?: string
+  value?: string | number
   class?: string
   hint?: string
   resize?: string
@@ -31,7 +31,19 @@ type WAElement<T = HTMLElement> = DetailedHTMLProps<HTMLAttributes<T>, T> & {
   'auto-width'?: boolean | string
   href?: string
   target?: string
+  rel?: string
   overview?: boolean
+  pill?: boolean
+  disabled?: boolean
+  effect?: string
+  image?: string
+  shape?: string
+  indeterminate?: boolean
+  summary?: string
+  'icon-placement'?: string
+  orientation?: string
+  withRemove?: boolean
+  attention?: string
 }
 
 declare module 'react' {
@@ -42,6 +54,7 @@ declare module 'react' {
       'wa-card': WAElement
       'wa-input': WAElement
       'wa-badge': WAElement
+      'wa-tag': WAElement
       'wa-dropdown': WAElement
       'wa-dropdown-item': WAElement
       'wa-drawer': WAElement
@@ -50,7 +63,11 @@ declare module 'react' {
       'wa-divider': WAElement
       'wa-callout': WAElement
       'wa-copy-button': WAElement
-      'wa-details': WAElement & { summary?: string }
+      'wa-details': WAElement
+      'wa-progress-bar': WAElement
+      'wa-spinner': WAElement
+      'wa-skeleton': WAElement
+      'wa-avatar': WAElement
       'wa-page': WAElement & {
         'mobile-breakpoint'?: string
         'navigation-placement'?: 'start' | 'end'

@@ -5,6 +5,10 @@ import Section from './Section'
 import { getCodeLogo, linkUrl } from './utils'
 import './ProjectsSection.css'
 
+import '@web.awesome.me/webawesome-pro/dist/components/button/button.js'
+import '@web.awesome.me/webawesome-pro/dist/components/icon/icon.js'
+import '@web.awesome.me/webawesome-pro/dist/components/tag/tag.js'
+
 function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="project-card">
@@ -21,27 +25,27 @@ function ProjectCard({ project }: { project: Project }) {
             {project.languages.map((l) => {
               const icon = getCodeLogo(l)
               return (
-                <span key={l} className="tech-chip">
-                  {icon && <wa-icon family="brands" name={icon} aria-hidden="true"></wa-icon>}
+                <wa-tag key={l} className="tech-chip">
+                  {icon && <wa-icon family="brands" name={icon} aria-hidden="true" />}
                   {l}
-                </span>
+                </wa-tag>
               )
             })}
           </div>
           <div className="project-links">
             {project.links.map((link) => (
-              <a
+              <wa-button
                 key={link.name}
                 href={linkUrl(link.url)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="project-link"
+                appearance="outlined"
+                size="s"
+                pill
               >
                 {link.name}
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
+                <wa-icon slot="end" name="arrow-up-right-from-square" />
+              </wa-button>
             ))}
           </div>
         </div>
@@ -80,9 +84,14 @@ export default function ProjectsSection({ projects }: { projects: Project[] }) {
         ))}
       </div>
       {hiddenCount > 0 && (
-        <button className="projects-toggle" onClick={() => setExpanded(!expanded)}>
+        <wa-button
+          className="projects-toggle"
+          pill
+          appearance="outlined"
+          onClick={() => setExpanded(!expanded)}
+        >
           {expanded ? 'Show less' : `Show ${hiddenCount} more`}
-        </button>
+        </wa-button>
       )}
     </Section>
   )

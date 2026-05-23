@@ -3,22 +3,23 @@ import Section from './Section'
 import { getCodeLogo } from './utils'
 import './SkillsSection.css'
 
-function SkillBar({ name, proficiency, index }: { name: string; proficiency: number; index: number }) {
-  const pct = `${Math.round((proficiency / 9) * 100)}%`
+import '@web.awesome.me/webawesome-pro/dist/components/progress-bar/progress-bar.js'
+
+function SkillBar({ name, proficiency }: { name: string; proficiency: number }) {
+  const pct = Math.round((proficiency / 9) * 100)
   const icon = getCodeLogo(name)
 
   return (
     <div className="skill-row">
       <span className="skill-name">
-        <wa-icon auto-width family="brands" name={icon ?? undefined} label={name}></wa-icon>
+        <wa-icon auto-width family="brands" name={icon ?? undefined} label={name} />
         {name}
       </span>
-      <div className="skill-bar-track">
-        <div
-          className="skill-bar-fill"
-          style={{ '--bar-w': pct, animationDelay: `${index * 40}ms` } as React.CSSProperties}
-        />
-      </div>
+      <wa-progress-bar
+        value={pct}
+        label={`${name}: ${proficiency}/9`}
+        style={{ '--track-height': '5px', '--indicator-color': '#f0c14a' } as React.CSSProperties}
+      />
       <span className="skill-level">{proficiency}/9</span>
     </div>
   )
@@ -29,8 +30,8 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
   return (
     <Section id="skills" eyebrow="Proficiency" title="Skills">
       <div className="skill-list">
-        {sorted.map((s, i) => (
-          <SkillBar key={s.name} name={s.name} proficiency={s.proficiency} index={i} />
+        {sorted.map((s) => (
+          <SkillBar key={s.name} name={s.name} proficiency={s.proficiency} />
         ))}
       </div>
     </Section>

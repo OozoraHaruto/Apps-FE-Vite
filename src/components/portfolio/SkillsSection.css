@@ -28,25 +28,6 @@
   text-overflow: ellipsis;
 }
 
-.skill-bar-track {
-  height: 5px;
-  border-radius: 100px;
-  background: var(--wa-color-surface-border);
-  overflow: hidden;
-}
-
-@keyframes grow-bar {
-  from { width: 0; }
-  to   { width: var(--bar-w, 0%); }
-}
-
-.skill-bar-fill {
-  height: 100%;
-  border-radius: 100px;
-  background: #f0c14a;
-  animation: grow-bar 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-
 .skill-level {
   font-size: 0.72rem;
   opacity: 0.45;

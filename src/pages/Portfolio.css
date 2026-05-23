@@ -43,20 +43,3 @@
   font-size: 0.9rem;
 }
 
-.pf-spinner {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 2px solid var(--wa-color-surface-border);
-  border-top-color: #38bdf8;
-  animation: spin 0.7s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.pf-error {
-  color: var(--wa-color-danger-600, #dc2626);
-  font-size: 0.875rem;
-}

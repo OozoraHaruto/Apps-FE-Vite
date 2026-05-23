@@ -6,7 +6,10 @@ import { useTitle } from '../hooks/useTitle'
 import HarutoAppCard, { type HomeApp } from '../components/haruto/HarutoAppCard'
 import './Haruto.css'
 
-import '@web.awesome.me/webawesome-pro/dist/components/copy-button/copy-button.js';
+import '@web.awesome.me/webawesome-pro/dist/components/details/details.js'
+import '@web.awesome.me/webawesome-pro/dist/components/skeleton/skeleton.js'
+import '@web.awesome.me/webawesome-pro/dist/components/card/card.js'
+import '@web.awesome.me/webawesome-pro/dist/components/copy-button/copy-button.js'
 
 const API = 'https://api.harutoapps.org/home'
 
@@ -54,77 +57,19 @@ function useHarutoData(token: string | null, isMe: boolean, isAllowed: boolean) 
   return { apps, appsOfficial, macKeys, winKeys }
 }
 
-/* ─── Chevron icon ─────────────────────────────────────────── */
-function Chevron() {
-  return (
-    <svg
-      className="h-chevron"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  )
-}
-
 /* ─── Skeleton card ────────────────────────────────────────── */
 function CardSkeleton({ delay = 0 }: { delay?: number }) {
   return (
-    <div
+    <wa-card
       className="h-skeleton"
-      style={{ '--anim-delay': `${delay}s` } as CSSProperties}
+      style={{ '--anim-delay': `${delay}s`, '--spacing': '0' } as CSSProperties}
     >
-      <div className="h-skeleton-img" />
+      <wa-skeleton slot="media" effect="sheen" className="h-skeleton-img" />
       <div className="h-skeleton-body">
-        <div className="h-skeleton-line h-skeleton-line--title" />
-        <div className="h-skeleton-line h-skeleton-line--a" />
+        <wa-skeleton effect="sheen" className="h-skeleton-line h-skeleton-line--title" />
+        <wa-skeleton effect="sheen" className="h-skeleton-line h-skeleton-line--a" />
       </div>
-    </div>
-  )
-}
-
-/* ─── Animated section ─────────────────────────────────────── */
-function Section({
-  title,
-  label,
-  children,
-  defaultOpen = true,
-}: {
-  title: string
-  label?: string
-  children: React.ReactNode
-  defaultOpen?: boolean
-}) {
-  const [open, setOpen] = useState(defaultOpen)
-
-  return (
-    <div className={`h-section${open ? ' h-section--open' : ''}`}>
-      <button
-        type="button"
-        className="h-toggle"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-      >
-        <span className="h-toggle-left">
-          <span className="h-toggle-title">{title}</span>
-          {label && <span className="h-toggle-sub">{label}</span>}
-        </span>
-        <span className="h-toggle-right">
-          <Chevron />
-        </span>
-      </button>
-
-      <div className="h-collapse">
-        <div className="h-collapse-inner">
-          <div className="h-body">{children}</div>
-        </div>
-      </div>
-    </div>
+    </wa-card>
   )
 }
 
@@ -177,7 +122,7 @@ export default function Haruto() {
   return (
     <div className="h-page">
       {isMe && (
-        <Section title="アプリ" label="My Apps" defaultOpen>
+        <wa-details className="h-section" open summary="アプリ — My Apps">
           <div className="h-grid">
             {apps
               ? apps.map((app, i) => (
@@ -187,10 +132,10 @@ export default function Haruto() {
                   <CardSkeleton key={i} delay={i * 0.045} />
                 ))}
           </div>
-        </Section>
+        </wa-details>
       )}
 
-      <Section title="他のアプリ" label="Official Apps" defaultOpen={!isMe}>
+      <wa-details className="h-section" open={!isMe || undefined} summary="他のアプリ — Official Apps">
         <div className="h-grid">
           {appsOfficial
             ? appsOfficial.map((app, i) => (
@@ -200,10 +145,10 @@ export default function Haruto() {
                 <CardSkeleton key={i} delay={i * 0.045} />
               ))}
         </div>
-      </Section>
+      </wa-details>
 
       {isMe && (
-        <Section title="Product Keys" label="プロダクトキー" defaultOpen={false}>
+        <wa-details className="h-section" summary="Product Keys — プロダクトキー">
           <div className="h-keys-grid">
             {macKeys && winKeys ? (
               <>
@@ -216,7 +161,7 @@ export default function Haruto() {
               </p>
             )}
           </div>
-        </Section>
+        </wa-details>
       )}
     </div>
   )

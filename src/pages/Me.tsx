@@ -4,8 +4,11 @@ import { useAuth } from '../contexts/AuthContext'
 import { useTitle } from '../hooks/useTitle'
 import './Me.css'
 
+import '@web.awesome.me/webawesome-pro/dist/components/card/card.js'
 import '@web.awesome.me/webawesome-pro/dist/components/button/button.js'
 import '@web.awesome.me/webawesome-pro/dist/components/icon/icon.js'
+import '@web.awesome.me/webawesome-pro/dist/components/divider/divider.js'
+import '@web.awesome.me/webawesome-pro/dist/components/avatar/avatar.js'
 
 const API = 'https://app-api-pr9v.onrender.com'
 
@@ -36,8 +39,8 @@ export default function Me() {
 
   return (
     <div className="me-page">
-      <div className="me-card">
-        <div className="me-card-hero" />
+      <wa-card className="me-card">
+        <div slot="media" className="me-card-hero" />
         <div className="me-card-body">
           <div
             className="me-avatar-wrapper"
@@ -45,12 +48,17 @@ export default function Me() {
             role="button"
             aria-label="Profile picture"
           >
-            <img src={user.icon} alt={user.name} className="me-avatar" />
+            <wa-avatar
+              image={user.icon}
+              label={user.name}
+              shape="circle"
+              style={{ '--size': '100%' } as React.CSSProperties}
+            />
           </div>
           <h1 className="me-name">{user.name}</h1>
           <p className="me-subtitle">Haruto Apps member</p>
 
-          <div className="me-divider" />
+          <wa-divider style={{ '--spacing': '1.5rem 0' } as React.CSSProperties} />
 
           <ul className="me-info-list">
             <li className="me-info-row">
@@ -97,7 +105,7 @@ export default function Me() {
             </wa-button>
           </div>
         </div>
-      </div>
+      </wa-card>
     </div>
   )
 }

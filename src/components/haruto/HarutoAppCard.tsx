@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import type { CSSProperties } from 'react'
 
+import '@web.awesome.me/webawesome-pro/dist/components/button/button.js'
+import '@web.awesome.me/webawesome-pro/dist/components/divider/divider.js'
+
 export interface HomeAppLink {
   name: string
   url: string
@@ -17,23 +20,27 @@ export interface HomeApp {
 const cloudinaryUrl = (uri: string) =>
   `https://res.cloudinary.com/duxmjjxns/image/upload/t_haruto_apps_thumbnail/${uri}`
 
+type ButtonVariant = 'brand' | 'neutral' | 'success' | 'warning' | 'danger'
+
 function LinkList({ links }: { links: HomeAppLink[] }) {
   return (
     <>
       {links.map((link, i) =>
         link.name === 'hr' ? (
-          <hr key={i} />
+          <wa-divider key={i} orientation="horizontal" />
         ) : (
-          <a
+          <wa-button
             key={i}
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="h-link-btn"
-            data-v={link.color || 'brand'}
+            variant={(link.color || 'brand') as ButtonVariant}
+            appearance="outlined"
+            pill
+            size="s"
           >
             {link.name}
-          </a>
+          </wa-button>
         )
       )}
     </>
@@ -67,13 +74,15 @@ export default function HarutoAppCard({
       <div className="h-card-links">
         {app.links && <LinkList links={app.links} />}
         {hiddenCount > 0 && (
-          <button
-            type="button"
-            className="h-see-more"
+          <wa-button
+            variant="neutral"
+            appearance="outlined"
+            pill
+            size="s"
             onClick={() => setSeeMore((s) => !s)}
           >
             {seeMore ? '↑ less' : `+${hiddenCount} more`}
-          </button>
+          </wa-button>
         )}
         {seeMore && app.hiddenLinks && (
           <LinkList links={app.hiddenLinks} />

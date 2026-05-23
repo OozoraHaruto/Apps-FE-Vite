@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useTitle } from '../hooks/useTitle'
 import './Portfolio.css'
+
+import '@web.awesome.me/webawesome-pro/dist/components/spinner/spinner.js'
+import '@web.awesome.me/webawesome-pro/dist/components/callout/callout.js'
+import '@web.awesome.me/webawesome-pro/dist/components/icon/icon.js'
 import type {
   Certification, Language, Project, School, Skill, WorkExperience,
 } from '../models/portfolio'
@@ -48,14 +52,19 @@ export default function Portfolio() {
   if (state.loading) {
     return (
       <div className="pf-loading">
-        <div className="pf-spinner" />
+        <wa-spinner />
         Loading portfolio…
       </div>
     )
   }
 
   if (state.error) {
-    return <p className="pf-error">Failed to load portfolio: {state.error}</p>
+    return (
+      <wa-callout variant="danger">
+        <wa-icon slot="icon" name="circle-xmark" />
+        Failed to load portfolio: {state.error}
+      </wa-callout>
+    )
   }
 
   return (

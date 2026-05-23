@@ -2,6 +2,9 @@ import { Link } from 'react-router'
 import { useTitle } from '../hooks/useTitle'
 import './Tools.css'
 
+import '@web.awesome.me/webawesome-pro/dist/components/card/card.js'
+import '@web.awesome.me/webawesome-pro/dist/components/icon/icon.js'
+
 const TOOLS = [
   {
     id: 'password-generator',
@@ -25,17 +28,17 @@ export default function Tools() {
       <ul className="tool-list">
         {TOOLS.map((tool) => (
           <li key={tool.id}>
-            <Link to={`/tools/${tool.id}`} className="tool-list-card">
-              <span className="tool-list-card-icon" aria-hidden="true">{tool.icon}</span>
-              <div className="tool-list-card-body">
-                <h2 className="tool-list-card-name">{tool.name}</h2>
-                <p className="tool-list-card-desc">{tool.description}</p>
-              </div>
-              <span className="tool-list-card-arrow" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </span>
+            <Link to={`/tools/${tool.id}`} className="tool-card-link" aria-label={tool.name}>
+              <wa-card className="tool-list-card">
+                <div className="tool-card-inner">
+                  <span className="tool-list-card-icon" aria-hidden="true">{tool.icon}</span>
+                  <div className="tool-list-card-body">
+                    <h2 className="tool-list-card-name">{tool.name}</h2>
+                    <p className="tool-list-card-desc">{tool.description}</p>
+                  </div>
+                  <wa-icon name="arrow-right" className="tool-card-arrow" aria-hidden="true" />
+                </div>
+              </wa-card>
             </Link>
           </li>
         ))}

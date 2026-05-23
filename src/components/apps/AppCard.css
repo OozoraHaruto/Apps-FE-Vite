@@ -1,29 +1,26 @@
+.app-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .app-card {
-  position: relative;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  display: block;
+  text-align: center;
+}
+
+.app-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(240, 193, 74, 0.18);
+}
+
+.app-card::part(body) {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  padding: 1.5rem 1.25rem 1.25rem;
-  border-radius: 20px;
-  border: 1px solid var(--wa-color-surface-border);
-  background: var(--wa-color-surface-raised, var(--wa-color-surface-default));
-  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-  text-align: center;
-  cursor: pointer;
-}
-
-.app-card:hover {
-  border-color: rgba(240, 193, 74, 0.35);
-  box-shadow: 0 4px 24px rgba(240, 193, 74, 0.08);
-  transform: translateY(-2px);
-}
-
-.app-card-overlay {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: 0;
 }
 
 .app-card-icon {
@@ -72,47 +69,21 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
+  justify-content: center;
 }
 
-.platform-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.15rem 0.55rem;
-  border-radius: 100px;
+wa-tag.platform-tag::part(base) {
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: var(--chip-color, currentColor);
-  background: color-mix(in srgb, var(--chip-color, currentColor) 10%, transparent);
-  border: 1px solid color-mix(in srgb, var(--chip-color, currentColor) 25%, transparent);
+  color: var(--chip-color);
+  background: color-mix(in srgb, var(--chip-color) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--chip-color) 25%, transparent);
 }
 
 .app-card-actions {
-  position: relative;
-  z-index: 1;
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 0.25rem;
-}
-
-.app-store-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 1rem;
-  border-radius: 100px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: #f0c14a;
-  background: rgba(240, 193, 74, 0.1);
-  border: 1px solid rgba(240, 193, 74, 0.25);
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.app-store-btn:hover {
-  background: rgba(240, 193, 74, 0.18);
-  border-color: rgba(240, 193, 74, 0.4);
 }

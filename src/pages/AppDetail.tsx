@@ -5,6 +5,11 @@ import { useTitle } from '../hooks/useTitle'
 import type { Platform } from '../models/app'
 import './AppDetail.css'
 
+import '@web.awesome.me/webawesome-pro/dist/components/tag/tag.js'
+import '@web.awesome.me/webawesome-pro/dist/components/badge/badge.js'
+import '@web.awesome.me/webawesome-pro/dist/components/button/button.js'
+import '@web.awesome.me/webawesome-pro/dist/components/icon/icon.js'
+
 const PLATFORM_META: Record<Platform, { label: string; color: string }> = {
   iOS:       { label: 'iPhone',       color: '#0A84FF' },
   iPadOS:    { label: 'iPad',         color: '#5E5CE6' },
@@ -55,32 +60,32 @@ export default function AppDetail() {
               <div>
                 <p className="app-detail-subtitle">{app.subtitle}</p>
               </div>
-              <span className="app-detail-price">{app.price}</span>
+              <wa-badge variant="success" appearance="outlined" pill>{app.price}</wa-badge>
             </div>
             <div className="platform-chips" role="list" aria-label="Supported platforms">
               {app.platforms.map((p) => (
-                <span
+                <wa-tag
                   key={p}
                   role="listitem"
-                  className="platform-chip"
+                  pill
+                  className="platform-tag"
                   style={{ '--chip-color': PLATFORM_META[p].color } as React.CSSProperties}
                 >
                   {PLATFORM_META[p].label}
-                </span>
+                </wa-tag>
               ))}
             </div>
             {app.storeUrl && (
-              <a
+              <wa-button
                 href={app.storeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="app-detail-store-btn"
+                appearance="outlined"
+                pill
               >
                 Download on App Store
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
+                <wa-icon slot="end" name="arrow-up-right-from-square" />
+              </wa-button>
             )}
           </div>
         </div>

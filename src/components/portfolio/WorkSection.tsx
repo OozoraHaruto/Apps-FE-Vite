@@ -3,6 +3,8 @@ import LogoImg from './LogoImg'
 import Section from './Section'
 import { fmtDate, getCodeLogo } from './utils'
 import '@web.awesome.me/webawesome-pro/dist/components/details/details.js'
+import '@web.awesome.me/webawesome-pro/dist/components/card/card.js'
+import '@web.awesome.me/webawesome-pro/dist/components/tag/tag.js'
 import './WorkSection.css'
 
 export default function WorkSection({ work }: { work: WorkExperience[] }) {
@@ -10,7 +12,7 @@ export default function WorkSection({ work }: { work: WorkExperience[] }) {
     <Section id="work" eyebrow="Experience" title="Work History">
       <div className="work-list">
         {work.map((w) => (
-          <article key={`${w.company}-${w.from}`} className="work-card">
+          <wa-card key={`${w.company}-${w.from}`} className="work-card" style={{ '--spacing': '0' } as React.CSSProperties}>
             <div className="work-card-header">
               <LogoImg path={w.logo} alt={w.company} size={52} />
               <div className="work-card-title-group">
@@ -26,10 +28,10 @@ export default function WorkSection({ work }: { work: WorkExperience[] }) {
                   {w.programming.map((t) => {
                     const icon = getCodeLogo(t)
                     return (
-                      <span key={t} className="tech-chip">
-                        {icon && <wa-icon auto-width family="brands" name={icon}></wa-icon>}
+                      <wa-tag key={t} className="tech-chip">
+                        {icon && <wa-icon auto-width family="brands" name={icon} />}
                         {t}
-                      </span>
+                      </wa-tag>
                     )
                   })}
                 </div>
@@ -51,7 +53,7 @@ export default function WorkSection({ work }: { work: WorkExperience[] }) {
                 </wa-details>
               )}
             </div>
-          </article>
+          </wa-card>
         ))}
       </div>
     </Section>
